@@ -1,0 +1,186 @@
+/* انیمیشن‌های آدمک برای نمایش طرز صحیح حرکت — کاملاً بدون لینک خارجی */
+
+.figure{
+  position:absolute;
+  bottom:14px;
+  right:50%;
+  transform:translateX(50%);
+  width:70px;
+  height:100px;
+}
+.figure .head{
+  position:absolute; top:0; left:24px;
+  width:20px;height:20px;border-radius:50%;
+  background:var(--ink);
+}
+.figure .torso{
+  position:absolute; top:20px; left:29px;
+  width:10px;height:36px;border-radius:5px;
+  background:var(--ink);
+  transform-origin:top center;
+}
+.figure .armL,.figure .armR{
+  position:absolute; top:24px;
+  width:7px;height:30px;border-radius:5px;
+  background:var(--accent);
+  transform-origin:top center;
+}
+.figure .armL{left:36px;}
+.figure .armR{left:22px;}
+.figure .legL,.figure .legR{
+  position:absolute; top:54px;
+  width:8px;height:34px;border-radius:5px;
+  background:var(--lime-dark);
+  transform-origin:top center;
+}
+.figure .legL{left:34px;}
+.figure .legR{left:22px;}
+.figure .bar{
+  position:absolute; top:22px; left:8px;
+  width:54px;height:5px;border-radius:3px;
+  background:#555;
+}
+.figure .dumbbell{
+  position:absolute; width:12px;height:12px;border-radius:4px; background:#555;
+}
+
+/* ---------- پرس سینه (press) ---------- */
+[data-anim="press"] .armL,[data-anim="press"] .armR{animation:pressArm 1.6s ease-in-out infinite;}
+[data-anim="press"] .torso{transform:rotate(90deg) translate(0,-6px);}
+[data-anim="press"] .head{top:16px;}
+@keyframes pressArm{
+  0%,100%{transform:rotate(70deg);}
+  50%{transform:rotate(10deg);}
+}
+
+/* ---------- پرس سرشانه (shoulderpress) ---------- */
+[data-anim="shoulderpress"] .armL{animation:spArmL 1.5s ease-in-out infinite;}
+[data-anim="shoulderpress"] .armR{animation:spArmR 1.5s ease-in-out infinite;}
+@keyframes spArmL{
+  0%,100%{transform:rotate(20deg);}
+  50%{transform:rotate(-150deg);}
+}
+@keyframes spArmR{
+  0%,100%{transform:rotate(-20deg);}
+  50%{transform:rotate(150deg);}
+}
+
+/* ---------- نشر جانب (lateral) ---------- */
+[data-anim="lateral"] .armL{animation:latArmL 1.6s ease-in-out infinite;}
+[data-anim="lateral"] .armR{animation:latArmR 1.6s ease-in-out infinite;}
+@keyframes latArmL{
+  0%,100%{transform:rotate(10deg);}
+  50%{transform:rotate(-80deg);}
+}
+@keyframes latArmR{
+  0%,100%{transform:rotate(-10deg);}
+  50%{transform:rotate(80deg);}
+}
+
+/* ---------- شنا سوئدی (pushup) ---------- */
+[data-anim="pushup"] .figure{transform:translateX(50%) rotate(90deg) translateY(10px);}
+[data-anim="pushup"] .torso,
+[data-anim="pushup"] .armL,[data-anim="pushup"] .armR{animation:pushupMove 1.7s ease-in-out infinite;}
+@keyframes pushupMove{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(10px);}
+}
+
+/* ---------- اسکوات (squat) ---------- */
+[data-anim="squat"] .figure{animation:squatMove 1.8s ease-in-out infinite;}
+[data-anim="squat"] .legL,[data-anim="squat"] .legR{animation:squatLeg 1.8s ease-in-out infinite;}
+@keyframes squatMove{
+  0%,100%{transform:translateX(50%) translateY(0);}
+  50%{transform:translateX(50%) translateY(14px);}
+}
+@keyframes squatLeg{
+  0%,100%{height:34px;}
+  50%{height:22px;}
+}
+
+/* ---------- ددلیفت (deadlift) ---------- */
+[data-anim="deadlift"] .torso{animation:dlTorso 2s ease-in-out infinite;}
+[data-anim="deadlift"] .armL,[data-anim="deadlift"] .armR{animation:dlArm 2s ease-in-out infinite;}
+@keyframes dlTorso{
+  0%,100%{transform:rotate(0deg);}
+  50%{transform:rotate(45deg);}
+}
+@keyframes dlArm{
+  0%,100%{transform:rotate(0deg) translateY(0);}
+  50%{transform:rotate(35deg) translateY(4px);}
+}
+
+/* ---------- زیربغل خم (row) ---------- */
+[data-anim="row"] .torso{transform:rotate(35deg);}
+[data-anim="row"] .armR{animation:rowArm 1.5s ease-in-out infinite; top:34px;}
+@keyframes rowArm{
+  0%,100%{transform:rotate(60deg);}
+  50%{transform:rotate(-30deg);}
+}
+
+/* ---------- جلوبازو (curl) ---------- */
+[data-anim="curl"] .armL,[data-anim="curl"] .armR{
+  animation:curlArm 1.4s ease-in-out infinite;
+  transform-origin:top center;
+}
+@keyframes curlArm{
+  0%,100%{transform:rotate(10deg);}
+  50%{transform:rotate(120deg);}
+}
+
+/* ---------- دراز و نشست (situp) ---------- */
+[data-anim="situp"] .torso{animation:situpTorso 1.7s ease-in-out infinite; transform-origin:bottom center;}
+[data-anim="situp"] .head{animation:situpHead 1.7s ease-in-out infinite;}
+[data-anim="situp"] .legL,[data-anim="situp"] .legR{transform:rotate(-70deg);}
+@keyframes situpTorso{
+  0%,100%{transform:rotate(75deg);}
+  50%{transform:rotate(20deg);}
+}
+@keyframes situpHead{
+  0%,100%{top:40px; left:10px;}
+  50%{top:16px; left:24px;}
+}
+
+/* ---------- پابلند کردن (legraise) ---------- */
+[data-anim="legraise"] .torso{transform:rotate(75deg);}
+[data-anim="legraise"] .head{top:42px; left:8px;}
+[data-anim="legraise"] .legL,[data-anim="legraise"] .legR{
+  animation:legraiseMove 1.6s ease-in-out infinite;
+  transform-origin:top center;
+}
+@keyframes legraiseMove{
+  0%,100%{transform:rotate(75deg);}
+  50%{transform:rotate(-5deg);}
+}
+
+/* ---------- چرخش روسی (twist) ---------- */
+[data-anim="twist"] .torso{animation:twistMove 1.3s ease-in-out infinite; transform-origin:bottom center;}
+[data-anim="twist"] .armL,[data-anim="twist"] .armR{animation:twistArm 1.3s ease-in-out infinite;}
+@keyframes twistMove{
+  0%,100%{transform:rotate(45deg) rotateY(0deg) skewX(-8deg);}
+  50%{transform:rotate(45deg) skewX(8deg);}
+}
+@keyframes twistArm{
+  0%,100%{transform:rotate(90deg) translateX(-6px);}
+  50%{transform:rotate(90deg) translateX(6px);}
+}
+
+/* ---------- پلانک (plank) ---------- */
+[data-anim="plank"] .figure{transform:translateX(50%) rotate(90deg);}
+[data-anim="plank"] .torso{animation:plankBreath 2.4s ease-in-out infinite;}
+@keyframes plankBreath{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(2px);}
+}
+
+/* ---------- لانگز (lunge) ---------- */
+[data-anim="lunge"] .legL{animation:lungeFront 1.6s ease-in-out infinite; transform-origin:top center;}
+[data-anim="lunge"] .legR{animation:lungeBack 1.6s ease-in-out infinite; transform-origin:top center;}
+@keyframes lungeFront{
+  0%,100%{transform:rotate(0deg);}
+  50%{transform:rotate(-35deg);}
+}
+@keyframes lungeBack{
+  0%,100%{transform:rotate(0deg);}
+  50%{transform:rotate(35deg);}
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ضربان | برنامه‌ی تمرینی خانگی</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <div class="topbar">
+    <div class="brand">
+      <div class="brand-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-7 4 14 2-7h6"/></svg>
+      </div>
+      <span>ضربان</span>
+    </div>
+  </div>
+
+  <div class="pulse-wrap">
+    <svg viewBox="0 0 600 40" preserveAspectRatio="none">
+      <path class="pulse-line" d="M0 20 H120 L140 5 L160 35 L180 20 H260 L280 20 H300 L320 5 L340 35 L360 20 H600
+                                    M600 20 H720 L740 5 L760 35 L780 20 H860 L880 20 H900 L920 5 L940 35 L960 20 H1200"/>
+    </svg>
+  </div>
+
+  <!-- ===== صفحه‌ی ورود اسم ===== -->
+  <section class="gate" id="gateView">
+    <h1>ورزش امروزتو <span>شروع کن</span></h1>
+    <p class="lead">اسمتو بنویس تا برنامه‌ی تمرینی مخصوص خودت رو ببینی. هر حرکت با انیمیشن طرز صحیحش نشون داده میشه.</p>
+
+    <form class="name-form" id="nameForm">
+      <label for="nameInput">اسمت رو بنویس</label>
+      <input type="text" id="nameInput" placeholder="مثلاً آرشام" autocomplete="off">
+      <button type="submit" class="btn">برو به برنامه‌ی من</button>
+      <div class="error-box" id="errorBox">این اسم رو نداریم! فعلاً فقط «آرشام» و «رضا» برنامه دارن.</div>
+    </form>
+    <div class="hint-names">فعلاً برنامه برای: آرشام و رضا آماده‌ست</div>
+  </section>
+
+  <!-- ===== صفحه‌ی برنامه ===== -->
+  <section class="program-view" id="programView">
+    <div class="program-header">
+      <div>
+        <h2 id="progName">—</h2>
+        <p id="progSubtitle">—</p>
+      </div>
+      <button class="switch-user" id="switchUserBtn">تغییر کاربر</button>
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="progress-num" id="progressNum">۰٪</div>
+    </div>
+
+    <div id="daysContainer"></div>
+  </section>
+
+</div>
+
+<!-- ===== پخش‌کننده‌ی موزیک ===== -->
+<div class="player">
+  <div class="p-icon" id="playBtn">
+    <svg id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+  </div>
+  <div class="p-info">
+    <div class="p-title" id="trackTitle">موزیکی انتخاب نشده</div>
+    <div class="p-sub" id="trackSub">از فایل‌های گوشیت یه آهنگ انتخاب کن</div>
+  </div>
+  <div class="p-bars" id="pBars"><i></i><i></i><i></i><i></i></div>
+  <button class="p-file-btn" id="pickFileBtn">انتخاب موزیک</button>
+  <input type="file" id="audioFileInput" accept="audio/*" multiple>
+</div>
+
+<audio id="audioEl"></audio>
+
+<script src="programs.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
